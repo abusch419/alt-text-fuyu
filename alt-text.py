@@ -17,6 +17,8 @@ text_prompt = "Generate a coco-style caption.\n"
 url = "https://as2.ftcdn.net/v2/jpg/01/42/21/91/1000_F_142219194_fwzSiS0dkWeUkmh4uIxA1J1nYoetmayI.jpg"
 image = Image.open(requests.get(url, stream=True).raw)
 
+image = image.resize((224, 224))
+
 inputs = processor(text=text_prompt, images=image, return_tensors="pt").to("cpu")
 
 # autoregressively generate text

@@ -24,5 +24,6 @@ generation_output = model.generate(**inputs, max_new_tokens=7)
 generation_text = processor.batch_decode(generation_output[:, -7:], skip_special_tokens=True)
 print("generation_text", generation_text)
 
+# benchmark
 end_time = time.time()
 print("Execution time:", end_time - start_time, "seconds")
